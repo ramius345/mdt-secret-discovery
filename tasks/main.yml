@@ -34,18 +34,6 @@
   set_fact:
     grafana_proxy_session_secret: "{{ grafana_proxy_data.resources[0]['data']['session_secret'] }}"
 
-- name: Fetch grafana-dashboards configmap
-  k8s_facts:
-    api_version: v1
-    kind: ConfigMap
-    namespace: openshift-monitoring
-    name: grafana-dashboards
-  register: grafana_dashboards_data
-
-- name: Set grafana-dashboards dashboards.yaml data
-  set_fact:
-    grafana_dashboards_dashboards_yaml: "{{ grafana_dashboards_data.resources[0]['data']['dashboards.yaml'] }}"
-
 - name: Print secrets
   debug:
     msg: >-
