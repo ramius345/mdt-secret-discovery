@@ -25,4 +25,4 @@
 - name: Print secrets
   debug:
     msg: >-
-      Data: {{ grafana_config_grafana_ini }}
+      Data: {{ grafana_datasources_prometheus_yaml }}
