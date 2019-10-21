@@ -20,7 +20,7 @@
 
 - name: Set grafana-config prometheus.yaml secret fact
   set_fact:
-    grafana_datasources_prometheus_yaml: "{{ grafana_datasources_data.resources[0]['data']['prometheus.yaml'] }}"
+    grafana_datasources_prometheus_yaml: "{{ grafana_datasources_data.resources[0]['data']['prometheus.yaml'] | to_nice_json(indent=2) }}"
 
 - name: Fetch grafana-proxy secret
   k8s_facts:
