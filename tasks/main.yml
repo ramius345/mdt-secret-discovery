@@ -18,9 +18,9 @@
     name: grafana-datasources
   register: grafana_datasources_data
 
-# - name: Set grafana-config prometheus.yaml secret fact
-#   set_fact:
-#     grafana_datasources_prometheus_yaml: "{{ grafana_datasources_data[0]['data']['prometheus.yaml'] }}"
+- name: Set grafana-config prometheus.yaml secret fact
+  set_fact:
+    grafana_datasources_prometheus_yaml: "{{ grafana_datasources_data.resources[0]['data']['prometheus.yaml'] }}"
 
 - name: Print secrets
   debug:
