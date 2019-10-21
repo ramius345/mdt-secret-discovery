@@ -37,4 +37,4 @@
 - name: Print secrets
   debug:
     msg: >-
-      Data: {{ grafana_dashboards_dashboards_yaml }}
+      Data: "{{ grafana_dashboards_dashboards_yaml }}"
