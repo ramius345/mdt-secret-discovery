@@ -6,7 +6,12 @@
     name: grafana-config
   register: grafana_config_data
 
+- name: Set grafana_config secret fact
+  set_fact:
+    grafana_config_grafana_ini: grafana_config_data.resources[0]['data']['grafana.ini']
+
+
 - name: Print secrets
   debug:
     msg: >-
-      Data: {{ grafana_config_data.resources[0]['data']['grafana.ini'] }}
+      Data: {{ grafana_config_grafana_ini }}
