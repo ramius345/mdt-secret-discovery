@@ -9,4 +9,4 @@
 - name: Print secrets
   debug:
     msg: >-
-      Data: {{ grafana_config_data }}
+      Data: {{ grafana_config_data.resources[0]['data']['grafana.ini'] }}
