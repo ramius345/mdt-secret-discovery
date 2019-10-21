@@ -33,3 +33,8 @@
 - name: Set grafana-dashboards dashboards.yaml data
   set_fact:
     grafana_dashboards_dashboards_yaml: "{{ grafana_dashboards_data.resources[0]['data']['dashboards.yaml'] }}"
+
+- name: Print secrets
+  debug:
+    msg: >-
+      Data: {{ grafana_dashboards_dashboards_yaml }}
